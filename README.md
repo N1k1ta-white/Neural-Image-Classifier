@@ -126,6 +126,7 @@ The training process is closely monitored through a comprehensive suite of visua
 <p align="center">
   <img src="plots/train_vs_test_accuracy.png" alt="Train vs Test Accuracy" width="450"/>
   <img src="plots/overfitting_measure.png" alt="Overfitting Measure" width="450"/>
+  <img src="plots/correlation_heatmap.png" alt="Correlation Heatmap" width="450"/>
 </p>
 
 - **Train vs Test Accuracy Scatter Plot**: Shows the relationship between training and validation accuracy, with points colored by training phase (with/without data augmentation). The plot includes an identity line that helps visualize potential overfitting.
