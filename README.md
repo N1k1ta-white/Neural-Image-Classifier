@@ -150,7 +150,7 @@ Key design decisions made during development:
 4. **Two Types of Dropout**: Spatial dropout for feature maps and classifier dropout before the final layer to prevent overfitting
 5. **AMP Implementation**: Added to speed up training and reduce memory consumption
 6. **Data Augmentation Strategy**: Carefully designed to reflect the types of variations expected in card images (rotation, lighting changes)
-7. **Two-Phase Training**: Started with data augmentation for 20 epochs, then fine-tuned without augmentation for 15 epochs to improve final accuracy
+7. **Two-Phase Training**: Started with data augmentation for 55 epochs, then fine-tuned without augmentation for 10 epochs to improve final accuracy
 
 ## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
