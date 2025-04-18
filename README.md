@@ -11,13 +11,17 @@
 ## 📋 Project Overview
 This project implements a deep learning model for classifying images of playing cards into 53 different classes (52 standard cards plus joker). The model can accurately identify the suit and value of playing cards from images, achieving approximately 98.4% accuracy on the test dataset. This solution addresses the challenge of automatically recognizing playing cards in various lighting conditions, angles, and backgrounds.
 
+> 📥 **Model Parameters**: [Download from Google Drive](https://drive.google.com/file/d/1xvZYqtjONPwEnT2v21-WQTclatRWrrLH/view?usp=drive_link) (27MB)
+
 ## 🧠 Model Architecture
 The architecture is a custom CNN (Convolutional Neural Network) with several advanced features:
 
-- **Bottleneck Blocks**: Inspired by ResNet architecture, these blocks use 1x1 convolutions to reduce parameters while maintaining performance. Each bottleneck block follows a three-layer pattern: 1x1 convolution for dimension reduction, 3x3 depth-wise convolution for feature extraction, and 1x1 convolution for dimension restorations:
+- **Bottleneck Blocks**: Inspired by ResNet architecture, these blocks use 1x1 convolutions to reduce parameters while maintaining performance. Each bottleneck block follows a three-layer pattern: 1x1 convolution for dimension reduction, 3x3 depth-wise convolution for feature extraction, and 1x1 convolution for dimension restoration.
 - **Squeeze-and-Excitation (SE) Blocks**: These blocks adaptively recalibrate channel-wise feature responses by explicitly modeling interdependencies between channels. The SE mechanism uses global average pooling followed by two fully connected layers with sigmoid activation to generate channel-wise attention weights.
 - **Skip Connections**: Implemented to help with gradient flow and mitigate the vanishing gradient problem. Skip connections allow the network to learn residual functions, making optimization easier during training.
-- **Spatial and Classifier Dropout**: Two types of dropout are used to prevent overfitting. Spatial dropout (25%) is applied to entire feature maps, while classifier dropout (45%) is applied before the final classification layer.
+- **Progressive Dropout Strategy**: Two types of dropout are implemented with increasing rates as training progresses:
+  - **Early stage**: Spatial dropout (15%) and classifier dropout (30%)
+  - **Later stage**: Increased to spatial dropout (25%) and classifier dropout (45%) 
 - **Deep Architecture**: The model consists of 5 stages with multiple bottleneck blocks, providing sufficient depth to learn hierarchical features. The network progressively increases channel dimensions (64→128→256→512→1024) while reducing spatial dimensions through strided convolutions.
 
 The model uses GELU activation functions throughout, which provide smoother gradients than ReLU and have shown better performance in many deep learning tasks. The final architecture contains approximately 7 million parameters, striking a balance between model capacity and computational efficiency.
