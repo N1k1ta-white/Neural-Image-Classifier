@@ -36,6 +36,8 @@ Stage 3: 3× Bottleneck Blocks (first with stride 2) + SE
     ↓
 Stage 4: 3× Bottleneck Blocks (first with stride 2) + SE
     ↓
+Dropout (p=0.15 (late 0.25))
+    ↓
 Stage 5: 2× Bottleneck Blocks (first with stride 2) + SE
     ↓
 Global Average Pooling
@@ -82,13 +84,13 @@ The training process involves several key steps:
 | Metric | Value |
 |--------|-------|
 | Final Test Accuracy | 98.4% |
-| Best Epoch | 28 |
-| Total Training Time | ~45 minutes |
-| Total Epochs | 35 |
-| With Data Augmentation | 20 epochs |
-| Without Data Augmentation | 15 epochs |
-| Avg. Time per Epoch (with aug.) | 98.7 seconds |
-| Avg. Time per Epoch (without aug.) | 76.2 seconds |
+| Best Epoch | 61-65 (plateau) |
+| Total Training Time | ~2.25 hours |
+| Total Epochs | 65 |
+| With Data Augmentation | 55 epochs |
+| Without Data Augmentation | 10 epochs |
+| Avg. Time per Epoch (with aug.) | 124.6 seconds |
+| Avg. Time per Epoch (without aug.) | 66.9 seconds |
 
 ## 📁 Dataset
 The project uses the [Cards Image Dataset Classification](https://www.kaggle.com/datasets/gpiosenka/cards-image-datasetclassification) from Kaggle, which includes:
